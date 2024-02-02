@@ -18,6 +18,9 @@ function install() {
 	fi
 }
 
+sudo add-apt-repository --remove ppa:vbernat/haproxy- 1.8
+sudo apt update
+sudo apt install haproxy
 install haproxy #install haproxy
 
 echo -e "\nSetting up some minor stuff.\n"
