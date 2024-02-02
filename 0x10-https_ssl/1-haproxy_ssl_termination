@@ -33,7 +33,7 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend ifix-it-frontend
+frontend ifix-it-frontend-http
         bind *:80
         mode http
         http-request redirect scheme https code 301 unless { ssl_fc }
@@ -41,7 +41,7 @@ frontend ifix-it-frontend
         default_backend ifix-it-backend
 
 frontend ifix-it-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/ifix-it.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.ifix-it.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend ifix-it-backend
 
